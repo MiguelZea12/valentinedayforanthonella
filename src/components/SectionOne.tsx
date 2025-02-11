@@ -5,12 +5,12 @@ import { Navigation, Pagination, EffectCoverflow } from 'swiper/modules';
 
 
 const images = [
-  "/src/assets/img/img1.jpg",
-  "/src/assets/img/img2.jpg",
-  "/src/assets/img/img3.jpg",
-  "/src/assets/img/img4.jpg",
-  "/src/assets/img/img5.jpg",
-  "/src/assets/img/img6.jpg",
+  "public/img1",
+  "public/img2.jpg",
+  "public/img3.jpg",
+  "public/img4.jpg",
+  "public/img5.jpg",
+  "public/img6.jpg",
   "src/assets/img/cc.png",
 ];
 
