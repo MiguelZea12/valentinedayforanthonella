@@ -5,12 +5,12 @@ import { Navigation, Pagination, EffectCoverflow } from 'swiper/modules';
 
 
 const images = [
-  "src/assets/img/img1.jpeg",
-  "src/assets/img/img2.jpeg",
-  "src/assets/img/img3.jpeg",
-  "src/assets/img/img4.jpeg",
-  "src/assets/img/img5.jpeg",
-  "src/assets/img/img6.jpeg",
+  "/src/assets/img/img1.jpg",
+  "/src/assets/img/img2.jpg",
+  "/src/assets/img/img3.jpg",
+  "/src/assets/img/img4.jpg",
+  "/src/assets/img/img5.jpg",
+  "/src/assets/img/img6.jpg",
 ];
 
 const SectionOne: React.FC = () => {
