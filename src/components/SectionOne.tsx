@@ -1,10 +1,8 @@
-import React from "react";
-import "swiper/css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css/navigation";
-import "swiper/css/effect-coverflow";
-import 'swiper/css/pagination';
-import { Navigation, EffectCoverflow, Pagination } from "swiper/modules";
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
+import { Navigation, Pagination, EffectCoverflow } from 'swiper/modules';
+
 
 const images = [
   "/src/assets/img/img1.jpeg",
