@@ -11,6 +11,7 @@ const images = [
   "/src/assets/img/img4.jpg",
   "/src/assets/img/img5.jpg",
   "/src/assets/img/img6.jpg",
+  "src/assets/img/cc.png",
 ];
 
 const SectionOne: React.FC = () => {
