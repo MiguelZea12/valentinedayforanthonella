@@ -7,8 +7,8 @@ const Header: React.FC = () => {
       <nav>
         <ul className="flex space-x-4">
           <li><a href="#section1" className="hover:underline">Fotos Juntos</a></li>
-          <li><a href="#section2" className="hover:underline">Sección 2</a></li>
-          <li><a href="#section3" className="hover:underline">Sección 3</a></li>
+          <li><a href="#section2" className="hover:underline">Tiempo Juntos</a></li>
+          <li><a href="#section3" className="hover:underline">Condiciones</a></li>
         </ul>
       </nav>
     </header>

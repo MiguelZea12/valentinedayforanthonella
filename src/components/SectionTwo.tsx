@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const calculateTimePassed = () => {
   const startDate = new Date("2023-09-01");
   const now = new Date();
-  
+
   let years = now.getFullYear() - startDate.getFullYear();
   let months = now.getMonth() - startDate.getMonth();
   let days = now.getDate() - startDate.getDate();
@@ -34,14 +34,21 @@ const SectionTwo: React.FC = () => {
   }, []);
 
   return (
-    <section id="section2" className="w-full flex flex-col items-center py-10">
-      <h2 className="text-3xl font-bold mb-6">Sección 2</h2>
-      <p className="text-lg">Tiempo transcurrido desde el 1 de septiembre de 2023:</p>
-      <div className="flex space-x-4 mt-6">
+    <section id="section2" className="w-full flex flex-col items-center py-12 px-6">
+      <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">Tiempo Juntos</h2>
+      <p className="text-lg md:text-xl text-center mb-4">
+        Tiempo transcurrido desde el 1 de septiembre de 2023:
+      </p>
+      
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6 w-full max-w-4xl">
         {Object.entries(timePassed).map(([key, value]) => (
-          <div key={key} className="flex flex-col items-center bg-gray-100 p-4 rounded-lg shadow-lg w-24">
-            <p className="text-2xl font-bold">{value}</p>
-            <p className="text-sm capitalize">{key}</p>
+          <div 
+            key={key} 
+            className="flex flex-col items-center bg-gray-100 p-8 rounded-xl shadow-lg w-full 
+                       md:w-48 lg:w-56 xl:w-64 transition-all duration-300"
+          >
+            <p className="text-5xl md:text-6xl font-extrabold">{value}</p>
+            <p className="text-lg md:text-xl capitalize font-medium">{key}</p>
           </div>
         ))}
       </div>
