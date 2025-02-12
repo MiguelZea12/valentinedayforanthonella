@@ -1,7 +1,10 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.css';
-import { Navigation, Pagination, EffectCoverflow } from 'swiper/modules';
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
+import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
+import AnimatedDots from "./AnimatedDots";
 
 
 const images = [
@@ -14,8 +17,14 @@ const images = [
 ];
 
 const SectionOne: React.FC = () => {
+
+  useEffect(() => {
+    AOS.init({ duration: 800 });
+  }, []);
+
     return (
-      <section id="section1" className="w-full flex flex-col items-center py-10">
+      <section data-aos="fade-up" id="section1" className="w-full  flex flex-col items-center py-10">
+        <AnimatedDots />
         <h2 className="text-3xl font-bold mb-6">Ultimas Fotos Juntos</h2>
         <Swiper
           navigation

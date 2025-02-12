@@ -1,41 +1,53 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { useConditions } from "../context/ConditionsContext";
+import WaveBackground from "./WaveBackground";
+import FloatingHearts from "./FloatingHearts";
 
 const Hero: React.FC = () => {
   const { accepted } = useConditions();
 
-  const handleYesClick = () => {
-    alert("¡Gracias por aceptar pasar San Valentín conmigo! 💖");
-  };
-
   return (
-    <section className="flex flex-col items-center justify-center h-screen bg-blue-400 text-white text-center p-10 w-full">
-      <h2 className="text-5xl font-bold">¿Quieres pasar San Valentín conmigo?</h2>
-      <p className="text-lg mt-2">Tienes dos opciones, pero solo una respuesta correcta.</p>
-      {!accepted && (
-        <p className="text-lg mt-4 text-red-600 px-4 py-2 ">
-          Debes aceptar las condiciones en la Sección 3 antes de responder.
-        </p>
-      )}
-      <div className="flex space-x-4 mt-6">
-        <button
-          onClick={handleYesClick}
-          disabled={!accepted}
-          className={`px-6 py-3 text-lg font-semibold rounded-lg shadow-lg transition-all duration-300
-                      ${accepted ? "bg-green-500 hover:bg-green-600" : "bg-gray-400 cursor-not-allowed"}
-                      text-white`}
-        >
-          Sí, acepto!
-        </button>
+    <section className="relative flex flex-col items-center justify-center h-screen bg-gradient-to-br from-primary to-secondary text-dark text-center p-10">
+      <FloatingHearts />
+      {/* Fondo SVG */}
+      <WaveBackground color="#17c3b2" />
+      
+      <motion.h2
+        className="text-5xl font-bold"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        ¿Quieres pasar San Valentín conmigo?
+      </motion.h2>
+      <p className="text-lg mt-2">Tienes solo una respuesta correcta.</p>
 
-        <button
-          disabled={!accepted}
-          className={`px-6 py-3 text-lg font-semibold rounded-lg shadow-lg transition-all duration-300
-                      ${accepted ? "bg-red-500 hover:bg-red-600" : "bg-gray-400 cursor-not-allowed"}
-                      text-white`}
+      {!accepted && (
+        <motion.p
+          className="text-lg mt-4 text-red-500 px-4 py-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
         >
-          No, me caes culo!
-        </button>
+          Debes aceptar las condiciones en la Sección 3 antes de responder.
+        </motion.p>
+      )}
+
+      <div className="flex space-x-4 mt-6">
+        {["Sí, acepto!", "No, me caes mal!"].map((text, index) => (
+          <motion.button
+            key={index}
+            disabled={!accepted}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={`px-6 py-3 text-lg font-semibold rounded-lg shadow-lg transition-all duration-300 ${
+              accepted ? (index === 0 ? "bg-green-500 hover:bg-green-600" : "bg-red-500 hover:bg-red-600") : "bg-gray-400 cursor-not-allowed"
+            } text-white`}
+          >
+            {text}
+          </motion.button>
+        ))}
       </div>
     </section>
   );

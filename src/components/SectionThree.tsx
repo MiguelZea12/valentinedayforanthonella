@@ -1,15 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useConditions } from '../context/ConditionsContext';
+import AnimatedDots from "./AnimatedDots";
 
 const SectionThree: React.FC = () => {
   const { accepted, toggleAccepted } = useConditions();
+
+    useEffect(() => {
+      AOS.init({ duration: 800 });
+    }, []);
 
   const handleClick = () => {
     toggleAccepted();
   };
 
   return (
-    <section id="section3" className="w-full flex flex-col items-center py-12 px-6">
+    <section id="section3" data-aos="fade-up" className="w-full  flex flex-col items-center py-12 px-6">
+      <AnimatedDots />
       <h2 className="text-4xl font-bold mb-6 text-center">Condiciones</h2>
       
       <p className="text-lg text-center max-w-2xl mb-6">

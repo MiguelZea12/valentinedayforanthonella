@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import AnimatedDots from "./AnimatedDots";
+
 
 const calculateTimePassed = () => {
   const startDate = new Date("2023-09-01");
@@ -27,6 +31,7 @@ const SectionTwo: React.FC = () => {
   const [timePassed, setTimePassed] = useState(calculateTimePassed());
 
   useEffect(() => {
+    AOS.init({ duration: 800 });
     const interval = setInterval(() => {
       setTimePassed(calculateTimePassed());
     }, 1000);
@@ -34,7 +39,8 @@ const SectionTwo: React.FC = () => {
   }, []);
 
   return (
-    <section id="section2" className="w-full flex flex-col items-center py-12 px-6">
+    <section id="section2" data-aos="fade-up" className="w-full  flex flex-col items-center py-12 px-6">
+      <AnimatedDots />
       <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">Tiempo Juntos</h2>
       <p className="text-lg md:text-xl text-center mb-4">
         Tiempo transcurrido desde el 1 de septiembre de 2023:
