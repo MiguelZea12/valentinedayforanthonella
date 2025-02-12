@@ -1,13 +1,38 @@
-// src/components/Hero.tsx
-
 import React from "react";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2"; // Importamos SweetAlert2
 import { useConditions } from "../context/ConditionsContext";
 import WaveBackground from "./WaveBackground";
 import FloatingHearts from "./FloatingHearts";
 
 const Hero: React.FC = () => {
   const { accepted } = useConditions();
+
+  const handleAcceptClick = () => {
+    if (accepted) {
+      Swal.fire({
+        title: "💖 Sabía que ibas a aceptar 💖",
+        text: "¡Te amo mucho! Gracias por aceptar 🥰",
+        icon: "success",
+        confirmButtonText: "¡Yo también te amo! ❤️",
+        confirmButtonColor: "#ff4d6d",
+        timer: 3500,
+        timerProgressBar: true,
+      });
+    }
+  };
+
+  const handleRejectClick = () => {
+    if (accepted) {
+      Swal.fire({
+        title: "🥺 ¿Por qué te caigo mal? ",
+        text: "Eso me pone triste... dime qué hice mal",
+        icon: "warning",
+        confirmButtonText: "Está bien... en realidad sí me caes bien 🙃",
+        confirmButtonColor: "#ff4d6d",
+      });
+    }
+  };
 
   return (
     <section className="relative flex flex-col items-center justify-center h-screen bg-gradient-to-br from-primary to-secondary text-dark text-center p-10" id="hero">
@@ -31,7 +56,7 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          Debes aceptar las condiciones en la Sección 3 antes de responder.
+          Debes aceptar las condiciones en la Sección de Condiciones antes de responder.
         </motion.p>
       )}
 
@@ -49,6 +74,7 @@ const Hero: React.FC = () => {
                   : "bg-red-500 hover:bg-red-600"
                 : "bg-gray-400 cursor-not-allowed"
             } text-white`}
+            onClick={index === 0 ? handleAcceptClick : handleRejectClick}
           >
             {text}
           </motion.button>

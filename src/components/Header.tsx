@@ -16,6 +16,17 @@ const Header: React.FC = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    setIsOpen(false); // Cierra el menú en móvil
+    const section = document.querySelector(sectionId);
+    if (section) {
+      const offset = 80; // Ajuste para el header
+      const sectionPosition = section.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: sectionPosition, behavior: "smooth" });
+    }
+  };
+
   return (
     <header
       className={`fixed w-full top-0 left-0 z-50 p-4 transition-all duration-300 ${
@@ -34,7 +45,7 @@ const Header: React.FC = () => {
           {isOpen ? <FiX size={32} /> : <FiMenu size={32} />}
         </motion.button>
 
-        {/* Menú móvil con mejor animación */}
+        {/* Menú móvil con gradiente */}
         <AnimatePresence>
           {isOpen && (
             <motion.nav
@@ -42,19 +53,19 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="absolute top-16 left-0 w-full bg-white shadow-lg rounded-b-lg md:hidden"
+              className="absolute top-16 left-0 w-full bg-gradient-to-br from-primary to-secondary shadow-lg rounded-b-lg md:hidden"
             >
-              <ul className="flex flex-col text-center p-4 space-y-4 font-bold">
-                {["Fotos Juntos", "Tiempo Juntos", "Condiciones"].map((item, index) => (
+              <ul className="flex flex-col text-center p-4 space-y-4 font-bold text-white">
+                {["Inicio", "Fotos Juntos", "Tiempo Juntos", "Condiciones"].map((item, index) => (
                   <motion.li
                     key={index}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <a
-                      href={`#section${index + 1}`}
-                      className="block px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-all"
-                      onClick={toggleMenu}
+                      href={`#${index === 0 ? "hero" : `section${index}`}`}
+                      className="block px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-all"
+                      onClick={(e) => handleSmoothScroll(e, `#${index === 0 ? "hero" : `section${index}`}`)}
                     >
                       {item}
                     </a>
@@ -67,13 +78,14 @@ const Header: React.FC = () => {
 
         {/* Menú desktop */}
         <nav className="hidden md:flex space-x-6 font-bold">
-          {["Fotos Juntos", "Tiempo Juntos", "Condiciones"].map((item, index) => (
+          {["Inicio", "Fotos Juntos", "Tiempo Juntos", "Condiciones"].map((item, index) => (
             <motion.a
               key={index}
-              href={`#section${index + 1}`}
+              href={`#${index === 0 ? "hero" : `section${index}`}`}
               className="px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-all"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
+              onClick={(e) => handleSmoothScroll(e, `#${index === 0 ? "hero" : `section${index}`}`)}
             >
               {item}
             </motion.a>

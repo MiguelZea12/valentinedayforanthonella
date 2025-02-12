@@ -12,10 +12,20 @@ const SectionThree: React.FC = () => {
   }, []);
 
   const handleClick = () => {
+    const wasAccepted = accepted; // Guardamos el estado antes de cambiarlo
     toggleAccepted();
-    setTimeout(() => {
-      window.location.hash = "#hero"; // Redirige a la sección Hero
-    }, 500); // Pequeño delay para suavizar la transición
+
+    // Solo redirigir si se está aceptando, no al desaceptar
+    if (!wasAccepted) {
+      setTimeout(() => {
+        const heroSection = document.querySelector("#hero");
+        if (heroSection) {
+          const offset = 80; // Ajuste para evitar que el header tape el título
+          const sectionPosition = heroSection.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: sectionPosition, behavior: "smooth" });
+        }
+      }, 500);
+    }
   };
 
   return (
@@ -25,13 +35,13 @@ const SectionThree: React.FC = () => {
 
       <div className="text-xl text-justify max-w-2xl mb-6">
         <ul className="list-disc pl-6">
-          <li>La más importante es que estés feliz. 😊</li>
-          <li>Aunque no pueda ser mucho, tiene un gran significado para mí. 💖</li>
-          <li>Espero que te haya gustado el sitio web 🤭.</li>
+          <li>La más importante es que estés feliz.</li>
+          <li>Aunque no pueda ser mucho, tiene un gran significado para mí.</li>
+          <li>Espero que te haya gustado el sitio web.</li>
           <li>Lo hice mostrando el tiempo que llevamos juntos y algunas de nuestras últimas fotos, como un recordatorio de lo especial que es nuestra historia. 📸</li>
-          <li>Me encantaría poner todas nuestras fotos, pero son muchísimas 😆.</li>
-          <li>Quisiera llenar este sitio con muchas cosas más, pensando en el futuro. 👨‍👩‍👧‍👦</li>
-          <li>Para que nuestros hijos puedan verlo algún día y sepan que así le pedí a su mamá que pasáramos San Valentín. ❤️</li>
+          <li>Me encantaría poner todas nuestras fotos, pero son muchísimas.</li>
+          <li>Quisiera llenar este sitio con muchas cosas más, pensando en el futuro.</li>
+          <li>Para que nuestros hijos puedan verlo algún día y sepan que así le pedí a su mamá que pasáramos San Valentín.</li>
         </ul>
       </div>
 
