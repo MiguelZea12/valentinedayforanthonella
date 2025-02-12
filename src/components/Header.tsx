@@ -53,9 +53,9 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="absolute top-16 left-0 w-full bg-gradient-to-br from-primary to-secondary shadow-lg rounded-b-lg md:hidden"
+              className="absolute top-16 left-0 w-full bg-white shadow-lg rounded-b-lg md:hidden"
             >
-              <ul className="flex flex-col text-center p-4 space-y-4 font-bold text-white">
+              <ul className="flex flex-col text-center p-4 space-y-4 font-bold text-black">
                 {["Inicio", "Fotos Juntos", "Tiempo Juntos", "Condiciones"].map((item, index) => (
                   <motion.li
                     key={index}
