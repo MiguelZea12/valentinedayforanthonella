@@ -36,12 +36,10 @@ const SectionThree: React.FC = () => {
       <div className="text-lg text-justify max-w-2xl mb-6">
         <ul className="list-disc pl-6">
           <li>La más importante es que estés feliz.</li>
-          <li>Aunque no pueda ser mucho, tiene un gran significado para mí.</li>
-          <li>Espero que te haya gustado el sitio web.</li>
-          <li>Lo hice mostrando el tiempo que llevamos juntos y algunas de nuestras últimas fotos, como un recordatorio de lo especial que es nuestra historia. 📸</li>
-          <li>Me encantaría poner todas nuestras fotos, pero son muchísimas.</li>
-          <li>Quisiera llenar este sitio con muchas cosas más, pensando en el futuro.</li>
-          <li>Para que nuestros hijos puedan verlo algún día y sepan que así le pedí a su mamá que pasáramos San Valentín.</li>
+          <li>Que no te va a importar si es mucho o poco lo de ese dia, si no que sera un significado lindo.</li>
+          <li>Que te haya gustado el sitio web. Lo hice mostrando el tiempo que llevamos juntos y algunas de nuestras últimas fotos, como un recordatorio de lo especial que es nuestra historia. 📸</li>
+          <li>Que llenaremos este sitio con todas nuestras fotos. Porque quisiera llenar este sitio con muchas cosas más, pensando en el futuro.</li>
+          <li>Que nuestros hijos lo veran algún día para que sepan que así le pedí a su mamá que pasáramos San Valentín.</li>
         </ul>
       </div>
 
