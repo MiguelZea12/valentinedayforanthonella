@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import AnimatedDots from "./AnimatedDots";
+import WavyLinesBackground from "./WavyLinesBackground";
 
 
 const calculateTimePassed = () => {
@@ -39,11 +40,12 @@ const SectionTwo: React.FC = () => {
   }, []);
 
   return (
-    <section id="section2" data-aos="fade-up" className="w-full  flex flex-col items-center py-12 px-6">
+    <section id="section2" data-aos="fade-up" className="w-full bg-secondary flex flex-col items-center py-12 px-6 mt-12">
       <AnimatedDots />
+      <WavyLinesBackground color="#17c3b2"/>
       <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">Tiempo Juntos</h2>
       <p className="text-lg md:text-xl text-center mb-4">
-        Tiempo transcurrido desde el 1 de septiembre de 2023:
+        Tiempo transcurrido desde el dia que aceptaste ser mi novia, y desde aquel momento, soy el hombre mas feliz del mundo, esa fecha fue el 1 de septiembre de 2023:
       </p>
       
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6 w-full max-w-4xl">
