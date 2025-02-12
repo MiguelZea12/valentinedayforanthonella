@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2"; // Importamos SweetAlert2
+import confetti from "canvas-confetti"; // Importamos la librería de confeti
 import { useConditions } from "../context/ConditionsContext";
 import WaveBackground from "./WaveBackground";
 import FloatingHearts from "./FloatingHearts";
@@ -10,9 +11,18 @@ const Hero: React.FC = () => {
 
   const handleAcceptClick = () => {
     if (accepted) {
+      // Lanzar confeti
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 },
+        colors: ["#ff4d6d", "#ff85a2", "#ffc2d1", "#ffccd5"], // Colores románticos
+      });
+
+      // Mostrar la alerta de SweetAlert2
       Swal.fire({
-        title: "💖 Sabía que ibas a aceptar 💖",
-        text: "¡Te amo mucho! Gracias por aceptar 🥰",
+        title: "Sabía que ibas a aceptar",
+        text: "¡Te amo mucho! Gracias por aceptar",
         icon: "success",
         confirmButtonText: "¡Yo también te amo! ❤️",
         confirmButtonColor: "#ff4d6d",
@@ -26,7 +36,7 @@ const Hero: React.FC = () => {
     if (accepted) {
       Swal.fire({
         title: "🥺 ¿Por qué te caigo mal? ",
-        text: "Eso me pone triste... dime qué hice mal",
+        text: "Eso me pone triste... dime qué hice mal 😞",
         icon: "warning",
         confirmButtonText: "Está bien... en realidad sí me caes bien 🙃",
         confirmButtonColor: "#ff4d6d",
