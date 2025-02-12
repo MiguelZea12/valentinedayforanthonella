@@ -19,9 +19,12 @@ const Header: React.FC = () => {
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
     setIsOpen(false); // Cierra el menú en móvil
+
     const section = document.querySelector(sectionId);
     if (section) {
-      const offset = 80; // Ajuste para el header
+      const headerHeight = document.querySelector("header")?.clientHeight || 80; // Tamaño del header
+      const offset = headerHeight + 80; // Ajuste extra para que el título no quede tapado
+
       const sectionPosition = section.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top: sectionPosition, behavior: "smooth" });
     }

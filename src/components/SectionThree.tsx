@@ -33,7 +33,7 @@ const SectionThree: React.FC = () => {
       <AnimatedDots />
       <h2 className="text-4xl font-bold mb-6 text-center">Condiciones</h2>
 
-      <div className="text-xl text-justify max-w-2xl mb-6">
+      <div className="text-lg text-justify max-w-2xl mb-6">
         <ul className="list-disc pl-6">
           <li>La más importante es que estés feliz.</li>
           <li>Aunque no pueda ser mucho, tiene un gran significado para mí.</li>
